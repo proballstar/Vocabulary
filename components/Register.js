@@ -21,6 +21,7 @@ export default class Register extends Component {
 
     onSignUp() {
         const { email, password, grade } = this.state;
+        const set = 0
 
         if ( email == '' || password == '' || grade == null) {
             this.setState({ responce: 'Please fill out ALL fields of the form. Thank you'})
@@ -32,7 +33,8 @@ export default class Register extends Component {
             .doc(firebase.auth().currentUser.uid)
             .set({
                 grade, 
-                email
+                email,
+                set,
             })
             console.log(result)
         })
